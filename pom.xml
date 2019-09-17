@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.yevgeny</groupId>
+    <artifactId>spring-mvc-example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <org.springframework.version>5.1.9.RELEASE</org.springframework.version>
+    </properties>
+
+    <dependencies>
+        <!-- spring-webmvc handles the MVC model.
+         It also brings all other spring stuff:
+         - beans, core - must have, enables IoC and DI
+         - context - adds application and servlet context creation
+         - expression - adds SpEL - used to query/manipulate spring-handled objects by
+                        using string expressions
+         - aop - custom AOP library used by spring for its instrumentation stuff
+         - web - basic web stuff like an HTTP client, file uploading, servlet listeners
+         - jcl - spring uses "Jakarta Commons Logging" for its logging by default
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <!-- Rename only the .war file -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <warName>minimalmvc</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

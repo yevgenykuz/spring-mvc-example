@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <!-- Tells Spring that its DispatcherServlet is now called example so it can find its configuration file
+         "example-servlet.xml" because it can't do anything by itself -->
+        <servlet-name>example</servlet-name>
+        <!-- Tells Spring to use its own DispatcherServlet because why else is it there for? -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- Tells Spring context where to find its configuration instead of the default
+         "example-context.xml" because we don't need so many stupid xml files -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/example-servlet.xml</param-value>
+        </init-param>
+        <!-- Forces tomcat to load this servlet on application deployment because tomcat is crazy sometimes -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Maps the servlet to handle URL requests that start with the given pattern (relative to the app path)
+     because apparently this is very important and must have a separate section in this terrible file -->
+    <servlet-mapping>
+        <servlet-name>example</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
