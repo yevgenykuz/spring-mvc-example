@@ -9,6 +9,36 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <name>spring-mvc-example</name>
+    <description>Minimal Spring MVC 5 example project</description>
+    <url>https://github.com/yevgenykuz/spring-mvc-example</url>
+
+    <scm>
+        <url>https://github.com/yevgenykuz/spring-mvc-example</url>
+        <connection>https://github.com/yevgenykuz/spring-mvc-example</connection>
+    </scm>
+
+    <issueManagement>
+        <url>https://github.com/yevgenykuz/spring-mvc-example/issues</url>
+        <system>GitHub</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>yevgenykuz</id>
+            <name>Yevgeny Kuznetsov</name>
+            <url>https://github.com/yevgenykuz</url>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -46,8 +76,23 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>
                 <configuration>
-                    <warName>minimalmvc</warName>
+                    <warName>minimal-mvc</warName>
                 </configuration>
+            </plugin>
+            <!-- Show active profiles on the compile phase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>show-profiles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>active-profiles</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
