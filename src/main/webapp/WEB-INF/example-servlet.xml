@@ -9,7 +9,7 @@
 
     <!-- Enables Spring component scan and injection, so it can find and use "@Controller"
     (and other) classes in the given base package -->
-    <context:component-scan base-package="me.yevgeny"/>
+    <context:component-scan base-package="com.yevgenyk.training"/>
 
     <!-- Spring MVC must have a view resolver to know what pages to present. This configures it -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
